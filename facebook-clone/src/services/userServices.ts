@@ -1,5 +1,5 @@
 import axios from "axios";
-import { User, UserLogin } from "../interfaces/User";
+import { User, UserDetails, UserLogin } from "../interfaces/User";
 
 const api: string = `${process.env.REACT_APP_API}/users`
 
@@ -29,7 +29,7 @@ export function getFriendsDetails(userId: string) {
 }
 
 // update user
-export function updateUSer(user: User) {
+export function updateUSer(user: UserDetails) {
     return axios.put(`${api}/${user._id}`, user, {
         headers: { Authorization: JSON.parse(localStorage.getItem("token") as string) }
     });

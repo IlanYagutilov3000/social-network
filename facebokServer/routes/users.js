@@ -15,8 +15,9 @@ const updateSchema = Joi.object({
     firstname: Joi.string().required().min(2),
     lastname: Joi.string().required().min(2),
     email: Joi.string().required().min(2).email(),
-    /* look if you want to update the password as well */
-    profilePicture: Joi.string().optional()
+    profilePicture: Joi.string().optional(),
+    gender: Joi.string().optional().valid("male", "female", "custom"),
+    _id: Joi.string().optional()
 })
 
 // get user by id(current user)

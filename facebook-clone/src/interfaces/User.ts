@@ -20,7 +20,7 @@ export interface UserDetails {
     _id?: string,
     firstname: string,
     lastname: string,
-    birthday: number,
+    birthday?: number,
     gender: string,
     email: string,
     profilePicture: string

@@ -24,7 +24,7 @@ const EditUserModal: FunctionComponent<EditUserModalProps> = ({ show, onHide, re
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body >
-                    <EditUser  /* we need to send here the userId, onHide and refresh */ />
+                    <EditUser onHide={onHide} refresh={refresh} />
                 </Modal.Body>
             </Modal>
         </>

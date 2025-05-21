@@ -26,7 +26,7 @@ const UserProfile: FunctionComponent<UserProfileProps> = () => {
 
     useEffect(() => {
         dispatch(fetchUserDetails())
-    }, [])
+    }, [userChanged])
 
     useEffect(() => {
         getAllPostsOfTheUser(user?._id as string).then((res) => {
