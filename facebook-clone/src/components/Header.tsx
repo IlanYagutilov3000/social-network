@@ -29,18 +29,17 @@ const Header: FunctionComponent<HeaderProps> = () => {
             <div className="d-flex shadow-sm rounded bg-white sticky-top">
                 <div className="d-flex my-2 mx-2 align-items-center">
                     <NavLink to={"/"}><img src="facebookLogo.png" alt="Logo" style={{ width: "40px", height: "40px" }} className="me-2" /></NavLink>
-                    <div className="d-flex justify-content-center align-items-center inputcontainer">
+                    {/* <div className="d-flex justify-content-center align-items-center inputcontainer">
                         <i className="fa-solid fa-magnifying-glass serachIcon ps-2"></i>
-                        {/* Needs to be inside of form */}
                         <input type="text" placeholder="Search Facebook" className="searchFacebook d-none d-lg-block" />
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className="d-flex align-items-center justify-content-center flex-grow-1">
                     {/* color text-primary */}
                     <div className="d-flex justify-content-between iconContainer  ">
                         <NavLink to={"/"} className=""> <i className="fa-solid fa-house fs-5"></i></NavLink>
-                        <NavLink to={"/friends"}><i className="fa-solid fa-user-group fs-5"></i></NavLink>
+                        <NavLink to={"/searchFriends"}><i className="fa-solid fa-user-group fs-5"></i></NavLink>
                         <NavLink to={"/watch"}><i className="fa-brands fa-square-youtube fs-5"></i></NavLink>
                         <NavLink to={"/marketplace"}><i className="fa-solid fa-shop fs-5"></i></NavLink>
                         <NavLink to={"/groups"}><i className="fa-solid fa-group-arrows-rotate fs-5"></i></NavLink>

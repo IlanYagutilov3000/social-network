@@ -36,7 +36,7 @@ function App() {
           <Route path='/register' element={<Register />} />
 
           <Route path='/' element={<ProtectedRoutes><Home /></ProtectedRoutes>} />
-          <Route path='/friends' element={<ProtectedRoutes><FriendsComponent /></ProtectedRoutes>} />
+          <Route path='/searchFriends' element={<ProtectedRoutes><FriendsComponent /></ProtectedRoutes>} />
           <Route path='/watch' element={<ProtectedRoutes><Video /></ProtectedRoutes>} />
           <Route path='/marketplace' element={<ProtectedRoutes><Marketplace /></ProtectedRoutes>} />
           <Route path='/groups' element={<ProtectedRoutes><Groups /></ProtectedRoutes>} />

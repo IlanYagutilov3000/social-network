@@ -27,7 +27,7 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
                         {/* this needs t come from the data base */}
                         <span className="px-2">{userDetails?.firstname} {userDetails?.lastname} </span>
                     </div>
-                    <Link className="iconHolder d-flex align-items-center px-2" to={"/friends"}>
+                    <Link className="iconHolder d-flex align-items-center px-2" to={"/searchFriends"}>
                         <i className="fa-solid fa-user-group fs-5 "></i>
                         <p className="m-0">Friends</p>
                     </Link>

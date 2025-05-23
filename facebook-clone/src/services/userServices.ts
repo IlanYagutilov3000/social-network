@@ -13,6 +13,14 @@ export function login(user: UserLogin) {
     return axios.post(`${api}/login`, user)
 }
 
+// all users
+export function getAllUsers() {
+    return axios.get(`${api}/all-users`, {
+        headers: { Authorization: JSON.parse(localStorage.getItem("token") as string) }
+    })
+}
+
+
 // get current user
 // there is auth validation here that's why header is here
 export function getUserById() {

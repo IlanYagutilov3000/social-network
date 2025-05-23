@@ -102,7 +102,7 @@ const EditUser: FunctionComponent<EditUserProps> = ({ onHide, refresh }) => {
                                     <label htmlFor="profilePicture">Upload URL</label>
                                 </div>
                             </div>
-                            <button type="submit" disabled={!formik.dirty || !formik.isValid} className="btn btn-primary w-100" >Post</button>
+                            <button type="submit" disabled={!formik.dirty || !formik.isValid} className="btn btn-primary w-100" >Update</button>
                         </form>
                     </div>
                 </div>
