@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 import { rootState } from "../redux/store";
 import DeleteUserModal from "./DeleteUserModal";
 import DeleteFriendAccount from "./DeleteFriendAccountModal";
+import EditUserModal from "./EditUserModal";
+import EditFriendModal from "./EditFriendModal";
 
 interface FriendProfileProps {
 
@@ -21,6 +23,7 @@ const FriendProfile: FunctionComponent<FriendProfileProps> = () => {
     const [postChange, setPostChange] = useState<boolean>(false)
     const [userChanged, setUserChanged] = useState<boolean>(false);
     const [openDeleteUser, setOpenDeleteUser] = useState<boolean>(false);
+    const [openEditUSer, setOpenEditUser] = useState<boolean>(false);
 
     const user = useSelector((state: rootState) => state.auth.user)
 
@@ -30,7 +33,7 @@ const FriendProfile: FunctionComponent<FriendProfileProps> = () => {
         }).catch((err) => {
             console.log(err);
         })
-    }, [])
+    }, [userChanged])
 
     useEffect(() => {
         getAllPostsOfTheUser(userId as string).then((res) => {
@@ -64,6 +67,9 @@ const FriendProfile: FunctionComponent<FriendProfileProps> = () => {
                     </div>
                 </div>
                 <div className="buttunForTheUser">
+                    {user?.isAdmin && (<button className="btn btn-primary" onClick={() => {
+                        setOpenEditUser(true)
+                    }} >Update account</button>)}
                     <button className="btn btn-success mx-1" disabled>add friend</button>
                     {/* only the user or admin can see this buttn */}
                     {user?.isAdmin && (<button className="btn btn-danger" onClick={() => {
@@ -134,6 +140,9 @@ const FriendProfile: FunctionComponent<FriendProfileProps> = () => {
             </div>
 
             <DeleteFriendAccount show={openDeleteUser} onHide={() => setOpenDeleteUser(false)} refresh={refresh} userId={userId as string} />
+
+            {/* this needs to be changed to a diffrent user not the current user */}
+            <EditFriendModal show={openEditUSer} onHide={() => setOpenEditUser(false)} refresh={refresh} userId={userId as string} />
 
         </>
     );
