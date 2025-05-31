@@ -61,7 +61,6 @@ const CommentPost: FunctionComponent<CommentPostProps> = ({ postId }) => {
             {post ? (
                 <div className=" cardContainer d-flex flex-column mb-3" key={post._id} >
                     <div className=" d-flex">
-                        <span>profilePic</span>
                         <div className="nameAndDate d-flex flex-column mx-2">
                             <h5 className="fs-6 m-0" >{typeof post.userId === "object"
                                 ? `${post.userId.firstname} ${post.userId.lastname}`
@@ -85,7 +84,7 @@ const CommentPost: FunctionComponent<CommentPostProps> = ({ postId }) => {
                     <div>
                         {comments.length ? (comments.map((comment) => (
                             <div key={comment._id} className="commentContainer" >
-                                <div  className="flex flex-column commentText mb-3 p-0 ">
+                                <div className="flex flex-column commentText mb-3 p-0 ">
                                     <p className="commentOnwerDetails" >{typeof comment.userId === "object"
                                         ? `${comment.userId.firstname} ${comment.userId.lastname}`
                                         : "Unknown User"}</p>

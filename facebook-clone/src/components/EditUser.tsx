@@ -45,7 +45,7 @@ const EditUser: FunctionComponent<EditUserProps> = ({ onHide, refresh }) => {
             email: yup.string().required().min(2).email()
         }),
         onSubmit: (values) => {
-            updateUSer({...values, _id: user._id as string}).then(() => {
+            updateUSer({ ...values, _id: user._id as string }).then(() => {
                 onHide()
                 refresh()
                 /* window.location.reload(); */
@@ -58,12 +58,12 @@ const EditUser: FunctionComponent<EditUserProps> = ({ onHide, refresh }) => {
     })
     return (
         <>
-            <div className="container d-flex flex-column align-items-center">
+            <div className=" d-flex flex-column align-items-center EditingUserContainer">
                 <h1 className="text-primary text-center display-2 fw-bold">facebook</h1>
-                <div className="registerContainer bg-white shadow rounded my-3">
-                    <div className="registerFromContainer d-flex flex-column align-items-center p-3 ">
-                        <form action="" onSubmit={formik.handleSubmit}>
-                            <div className="inputControl d-flex">
+                <form action="" onSubmit={formik.handleSubmit}>
+                    <div className="mb-3">
+                        <div className="col-md">
+                            <div className="inputControl d-flex ">
                                 <div className="firstAndLast d-flex flex-column">
                                     <input type="text" placeholder="First name" className="me-2 p-1" value={formik.values.firstname} onChange={formik.handleChange} onBlur={formik.handleBlur} name="firstname" />
                                     {formik.touched.firstname && formik.errors.firstname && <p className="text-danger errorMsgRegister mb-0" >{formik.errors.firstname}</p>}
@@ -73,39 +73,37 @@ const EditUser: FunctionComponent<EditUserProps> = ({ onHide, refresh }) => {
                                     {formik.touched.firstname && formik.errors.firstname && <p className="text-danger errorMsgRegister mb-0" >{formik.errors.firstname}</p>}
                                 </div>
                             </div>
-                            <div className="gContainer d-flex align-items-center mt-3 mb-0">
-                                <span className="gender mb-0">Gender</span>
-                                <i className="fa-solid fa-circle-info infoZise ps-1"></i>
-                            </div>
-                            <div className="genderConainer d-flex justify-content-between mt-0">
-                                <label htmlFor="male" className={`p-1 ${formik.touched.gender && formik.errors.gender ? "border border-danger " : ""}`}>
-                                    Male
-                                    <input type="radio" name="gender" id="male" className="me-2" value="male" onChange={formik.handleChange} onBlur={formik.handleBlur} checked={formik.values.gender === "male"} />
-                                </label>
-                                <label htmlFor="female" className={`p-1 ${formik.touched.gender && formik.errors.gender ? "border border-danger " : ""}`}>
-                                    Female
-                                    <input type="radio" name="gender" id="female" className="me-2" value="female" onChange={formik.handleChange} onBlur={formik.handleBlur} checked={formik.values.gender === "female"} />
-                                </label>
-                                <label htmlFor="custom" className={`p-1 ${formik.touched.gender && formik.errors.gender ? "border border-danger " : ""}`}>
-                                    Custom
-                                    <input type="radio" name="gender" id="custom" className="me-2" value="custom" onChange={formik.handleChange} onBlur={formik.handleBlur} checked={formik.values.gender === "custom"} />
-                                </label>
-                            </div>
-                            <div className="emailAndPasswordContainer d-flex flex-column mt-2">
-                                <input type="email" placeholder="Email or Phone number" className=" p-1" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} name="email" />
-                                {formik.touched.email && formik.errors.email && <p className="text-danger errorMsg mb-0" >{formik.errors.email}</p>}
-                            </div>
-                            <div className="col-md">
-                                <div className="emailAndPasswordContainer d-flex flex-column mt-2 form-floating">
-                                    <input type="text" className="form-control" id="profilePicture" placeholder="profile Picture"
-                                        name="profilePicture" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.profilePicture} />
-                                    <label htmlFor="profilePicture">Upload URL</label>
-                                </div>
-                            </div>
-                            <button type="submit" disabled={!formik.dirty || !formik.isValid} className="btn btn-primary w-100" >Update</button>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                    <div className="form-group mt-2">
+                        <select
+                            name="gender"
+                            className={`form-select ${formik.touched.gender && formik.errors.gender ? "is-invalid" : ""}`}
+                            value={formik.values.gender}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                        >
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                        {formik.touched.gender && formik.errors.gender && (
+                            <div className="invalid-feedback">{formik.errors.gender}</div>
+                        )}
+                    </div>
+                    <div className="emailAndPasswordContainer d-flex flex-column mt-2">
+                        <input type="email" placeholder="Email or Phone number" className=" p-1" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} name="email" />
+                        {formik.touched.email && formik.errors.email && <p className="text-danger errorMsg mb-0" >{formik.errors.email}</p>}
+                    </div>
+                    <div className="col-md">
+                        <div className="emailAndPasswordContainer d-flex flex-column mt-2 form-floating">
+                            <input type="text" className="form-control" id="profilePicture" placeholder="profile Picture"
+                                name="profilePicture" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.profilePicture} />
+                            <label htmlFor="profilePicture">Upload URL</label>
+                        </div>
+                    </div>
+                    <button type="submit" disabled={!formik.dirty || !formik.isValid} className="btn btn-primary w-100" >Update</button>
+                </form>
             </div>
         </>
     );

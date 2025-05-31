@@ -27,8 +27,6 @@ const CommentPostModal: FunctionComponent<CommentPostModalProps> = ({show, onHid
                 <Modal.Body className="p-0" >
                     <CommentPost postId={postId} />
                 </Modal.Body>
-                {/* <Modal.Footer >
-                </Modal.Footer> */}
             </Modal>
         </>
     );

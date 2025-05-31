@@ -58,7 +58,6 @@ const Feed: FunctionComponent<FeedProps> = () => {
                     <div className="card cardContainer d-flex flex-column mb-3" key={post._id} >
                         <div className="card-body p-0">
                             <div className="cardOwner d-flex">
-                                <span>{ }</span>
                                 <img src={typeof post.userId === "object"
                                     ? `${post.userId.profilePicture}`
                                     : "https://painrehabproducts.com/wp-content/uploads/2014/10/facebook-default-no-profile-pic.jpg"} alt="profile picutre of the user who created th epost" style={{ width: "40px", height: "40px" }} className="rounded-circle" />
@@ -80,8 +79,8 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                         : "Invalid date"}</span>
                                 </div>
                                 {/* will need to fid a better way to do this  */}
-                                <div className="dropdown" >
-                                    <i className="fa-solid fa-ellipsis-vertical" data-bs-toggle="dropdown"></i>
+                                <div className="dropdown " >
+                                    <button className="btn" data-bs-toggle="dropdown"><i className="fa-solid fa-ellipsis-vertical postSettings" ></i></button>
                                     <ul className="dropdown-menu">
                                         {(user?.isAdmin || user?._id?.toString() ===
                                             (typeof post.userId === "object" ? post.userId._id?.toString() : post.userId?.toString())) && (
@@ -121,18 +120,18 @@ const Feed: FunctionComponent<FeedProps> = () => {
                             </div>
                             <hr className="m-0" />
                             <div className="likeAndComment d-flex justify-content-around">
-                                <p className="m-0 p-0" onClick={() => {
+                                <p className="m-0 p-0 likebutton" onClick={() => {
                                     likeAndUnlikePosts(post._id as string).then(() => {
                                         setPostChange(!postChange);
                                     }).catch((err) => {
                                         console.log(err.response);
                                     })
                                 }} >Like </p>
-                                <p className="m-0 p-0" onClick={() => {
+                                <p className="m-0 p-0 commentbutton" onClick={() => {
                                     setOpenCommentPost(true)
                                     setPostId(post._id as string)
                                 }}  >Comment</p>
-                                <p className="m-0 p-0">Save</p>
+                                <p className="m-0 p-0 savebutton">Save</p>
                             </div>
                         </div>
                     </div>
