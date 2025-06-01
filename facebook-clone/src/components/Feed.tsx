@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { appDispach, rootState } from "../redux/store";
 import { fetchUserDetails } from "../redux/slices/userDetails";
 import EditPostModal from "./EditPostModal";
+import { ErrorMsg, succesMsg } from "../services/feedback";
 
 interface FeedProps {
 
@@ -97,8 +98,10 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                                 <button className="btn btn-outline-danger my-1" onClick={() => {
                                                         deletePost(post._id as string).then(() => {
                                                             setPostChange(!postChange);
+                                                             succesMsg("Post was deleted")
                                                         }).catch((err) => {
                                                             console.log(err);
+                                                            ErrorMsg("Something went wrong")
                                                         });
                                                     }}>
                                                         Delete

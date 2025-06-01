@@ -8,6 +8,8 @@ import LoadingPlaceHolder from "./LoadingPlaceHolder";
 import DeleteUserModal from "./DeleteUserModal";
 import DeleteFriendAccount from "./DeleteFriendAccountModal";
 import EditUserModal from "./EditUserModal";
+import EditPostModal from "./EditPostModal";
+import { ErrorMsg, succesMsg } from "../services/feedback";
 
 interface UserProfileProps {
 
@@ -23,6 +25,8 @@ const UserProfile: FunctionComponent<UserProfileProps> = () => {
     const [userChanged, setUserChanged] = useState<boolean>(false);
     const [openDeleteUser, setOpenDeleteUser] = useState<boolean>(false);
     const [openEditUSer, setOpenEditUser] = useState<boolean>(false);
+    const [openEditPost, setOpenEditPost] = useState<boolean>(false);
+    const [postId, setPostId] = useState<string>("")
 
     useEffect(() => {
         dispatch(fetchUserDetails())
@@ -97,22 +101,26 @@ const UserProfile: FunctionComponent<UserProfileProps> = () => {
                                     <div className="dropdown" >
                                         <i className="fa-solid fa-ellipsis-vertical" data-bs-toggle="dropdown"></i>
                                         <ul className="dropdown-menu">
-                                            <li><button>Edit</button></li>
+                                            <li><button className="btn btn-outline-primary" onClick={() => {
+                                                setOpenEditPost(true)
+                                                setPostId(post._id as string)
+                                            }} >Edit</button></li>
                                             {(user?.isAdmin || user?._id?.toString() ===
                                                 (typeof post.userId === "object" ? post.userId._id?.toString() : post.userId?.toString())) && (
                                                     <li>
-                                                        <button onClick={() => {
-                                                            deletePost(post._id as string).then(() => {
-                                                                setPostChange(!postChange);
-                                                            }).catch((err) => {
-                                                                console.log(err);
-                                                            });
-                                                        }}>
-                                                            Delete
-                                                        </button>
+                                                    <button className="btn btn-outline-danger my-1" onClick={() => {
+                                                        deletePost(post._id as string).then(() => {
+                                                            setPostChange(!postChange);
+                                                            succesMsg("Post was deleted")
+                                                        }).catch((err) => {
+                                                            console.log(err);
+                                                            ErrorMsg("Something went wrong")
+                                                        });
+                                                    }}>
+                                                        Delete
+                                                    </button>
                                                     </li>
                                                 )}
-                                            <li><button>something</button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -135,6 +143,9 @@ const UserProfile: FunctionComponent<UserProfileProps> = () => {
             <DeleteUserModal show={openDeleteUser} onHide={() => setOpenDeleteUser(false)} refresh={refresh} userId={user?._id as string} />
 
             <EditUserModal show={openEditUSer} onHide={() => setOpenEditUser(false)} refresh={refresh} userId={user?._id as string} />
+
+            
+            <EditPostModal show={openEditPost} onHide={() => setOpenEditPost(false)} refresh={refresh} postId={postId} />
 
         </>
     );

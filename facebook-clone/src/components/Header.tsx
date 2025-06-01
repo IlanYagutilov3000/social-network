@@ -46,7 +46,14 @@ const Header: FunctionComponent<HeaderProps> = () => {
                     </div>
                 </div>
                 <div className="d-flex align-items-center">
-                    <button className="btn rounded-circle bg-body-secondary btn1 me-2" title="menu" ><i className="fa-solid fa-bars"></i></button>
+                    <div className="dropdown">
+                        <button className="btn rounded-circle bg-body-secondary btn1 me-2 dropdown-toggle" data-bs-toggle="dropdown" title="menu" ><i className="fa-solid fa-bars"></i></button> <ul className="dropdown-menu">
+                            <li> <NavLink to={"/"} className="dropdown-item"> <i className="fa-solid fa-house fs-5"></i></NavLink></li>
+                            <li><NavLink to={"/searchFriends"} className="dropdown-item" ><i className="fa-solid fa-user-group fs-5"></i></NavLink></li>
+                            <li><NavLink to={"/watch"} className="dropdown-item"><i className="fa-brands fa-square-youtube fs-5"></i></NavLink></li>
+                        </ul>
+                    </div>
+                    
                     <button className="btn rounded-circle bg-body-secondary btn1 me-2" title="logout" onClick={() => {
                         dispatch(logoutUser())
                         succesMsg("You've logged out")

@@ -11,6 +11,7 @@ import DeleteUserModal from "./DeleteUserModal";
 import DeleteFriendAccount from "./DeleteFriendAccountModal";
 import EditUserModal from "./EditUserModal";
 import EditFriendModal from "./EditFriendModal";
+import { ErrorMsg, succesMsg } from "../services/feedback";
 
 interface FriendProfileProps {
 
@@ -104,22 +105,22 @@ const FriendProfile: FunctionComponent<FriendProfileProps> = () => {
                                     <div className="dropdown" >
                                         <i className="fa-solid fa-ellipsis-vertical" data-bs-toggle="dropdown"></i>
                                         <ul className="dropdown-menu">
-                                            <li><button>Edit</button></li>
                                             {(user?.isAdmin || user?._id?.toString() ===
                                                 (typeof post.userId === "object" ? post.userId._id?.toString() : post.userId?.toString())) && (
                                                     <li>
-                                                        <button onClick={() => {
+                                                        <button className="btn btn-outline-danger my-1" onClick={() => {
                                                             deletePost(post._id as string).then(() => {
                                                                 setPostChange(!postChange);
+                                                                succesMsg("Post was deleted")
                                                             }).catch((err) => {
                                                                 console.log(err);
+                                                                ErrorMsg("Something went wrong")
                                                             });
                                                         }}>
                                                             Delete
                                                         </button>
                                                     </li>
                                                 )}
-                                            <li><button>something</button></li>
                                         </ul>
                                     </div>
                                 </div>
