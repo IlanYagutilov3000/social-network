@@ -44,8 +44,8 @@ const Login: FunctionComponent<LoginProps> = () => {
             <div className="container d-flex justify-content-center d-flex align-items-center flex-wrap">
                 {/*background-color is - #f2f4f7 */}
                 <div className="facebookName pe-5">
-                    <h1 className="text-primary fw-bold h1">facebook</h1>
-                    <p className="fw-semibold">Connect with friends and the world around you on Facebook.</p>
+                    <h1 className="text-primary fw-bold h1">social</h1>
+                    <p className="fw-semibold">Connect with friends and the world around you on Social.</p>
                 </div>
                 <div className="d-flex flex-column bg-white formContainer  align-items-center shadow rounded">
                     <form action="" onSubmit={formik.handleSubmit} >

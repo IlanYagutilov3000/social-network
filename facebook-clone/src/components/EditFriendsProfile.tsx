@@ -62,7 +62,7 @@ const EditFriendsProfile: FunctionComponent<EditFriendsProfileProps> = ({onHide,
     return (
         <>
             <div className="d-flex flex-column align-items-center EditingUserContainer">
-                <h1 className="text-primary text-center display-2 fw-bold">facebook</h1>
+                <h1 className="text-primary text-center display-2 fw-bold">social</h1>
                 <form action="" onSubmit={formik.handleSubmit}>
                     <div className="mb-3">
                         <div className="col-md">

@@ -11,6 +11,7 @@ import { appDispach, rootState } from "../redux/store";
 import { fetchUserDetails } from "../redux/slices/userDetails";
 import EditPostModal from "./EditPostModal";
 import { ErrorMsg, succesMsg } from "../services/feedback";
+import { savePost } from "../services/userServices";
 
 interface FeedProps {
 
@@ -134,7 +135,13 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                     setOpenCommentPost(true)
                                     setPostId(post._id as string)
                                 }}  >Comment</p>
-                                <p className="m-0 p-0 savebutton">Save</p>
+                                <p className="m-0 p-0 savebutton" onClick={() => {
+                                    savePost(post._id as string).then(() => succesMsg("Post got saved")
+                                    ).catch((err) => {
+                                        console.log(err);
+                                        ErrorMsg("Something went wrong");
+                                    })
+                                }} >Save</p>
                             </div>
                         </div>
                     </div>

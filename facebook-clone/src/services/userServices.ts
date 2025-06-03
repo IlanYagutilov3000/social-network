@@ -42,6 +42,15 @@ export function updateUSer(user: UserDetails) {
         headers: { Authorization: JSON.parse(localStorage.getItem("token") as string) }
     });
 }
+ // save post and unsave posts
+export function savePost(postId: string){
+    return axios.patch(`${api}/save/${postId}`, {}, { headers: { Authorization: JSON.parse(localStorage.getItem("token") as string) } })
+}
+
+// get saves posts
+export function getSavedPosts(){
+    return axios.get(`${api}/saved-posts`, { headers: { Authorization: JSON.parse(localStorage.getItem("token") as string) } })
+}
 
 // delete user
 export function deleteUSer(userId: string) {

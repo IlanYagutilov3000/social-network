@@ -28,10 +28,11 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
                         <span className="px-2">{userDetails?.firstname} {userDetails?.lastname} </span>
                     </div>
                     <Link className="iconHolder d-flex align-items-center px-2" to={"/searchFriends"}>
-                        <i className="fa-solid fa-user-group fs-5 "></i>
+                    {/* tried to change the icon doesn't change, don't kno why */}
+                        <i className="fa-solid fa-user-group"></i>
                         <p className="m-0">Friends</p>
                     </Link>
-                    <Link className="iconHolder d-flex align-items-center px-2" to={"/"}>
+                    <Link className="iconHolder d-flex align-items-center px-2" to={"/saved-posts"}>
                         <i className="fa-solid fa-bookmark "></i>
                         <p className="m-0">Saved</p>
                     </Link>

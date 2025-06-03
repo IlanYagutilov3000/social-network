@@ -42,6 +42,25 @@ router.get("/", auth, async (req, res) => {
     }
 })
 
+// get saved posts
+router.get("/saved-posts", auth, async (req, res) => {
+    try {
+        // find user
+        const user = await User.findById(req.payload._id).populate({
+            path: "savedPosts",
+            populate: {
+                path: "userId",
+                select: "firstname lastname profilePicture"
+            }
+        });
+        if (!user) return res.status(404).send("User not found");
+
+        res.status(200).send(user.savedPosts);
+    } catch (error) {
+        res.status(400).send(error.message || "Something went wrong");
+    }
+});
+
 // get a specifc user, not the current one
 router.get("/:userId", auth, async (req, res,) => {
     try {
@@ -68,6 +87,26 @@ router.put("/:userId", auth, async (req, res) => {
         res.status(200).send(user)
     } catch (error) {
         res.status(400).send(error)
+    }
+})
+
+// save post
+router.patch("/save/:postId", auth, async (req, res) => {
+    try {
+        // get 
+        const user = await User.findById(req.payload._id);
+        if(!user) return res.status(404).send("User not found")
+        // checking to see if the post id is or isn't in the savedPost
+    if(user.savedPosts.includes(req.params.postId)) {
+        user.savedPosts.pull(req.params.postId) // unsave
+    } else {
+        user.savedPosts.push(req.params.postId) // save
+    };
+    await user.save()
+        res.status(200).send({savedPosts: user.savedPosts})
+    } catch (error) {
+        res.status(400).send(error)
+        
     }
 })
 

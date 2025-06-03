@@ -76,7 +76,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
     return (
         <>
             <div className="container d-flex flex-column align-items-center">
-                <h1 className="text-primary text-center display-2 fw-bold">facebook</h1>
+                <h1 className="text-primary text-center display-2 fw-bold">social</h1>
                 <div className="registerContainer bg-white shadow rounded my-3">
                     <h4 className="fw-bold my-0 text-center">Create a new account</h4>
                     <p className="text-center">It’s quick and easy.</p>
@@ -141,7 +141,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
                                 {formik.touched.password && formik.errors.password && <p className="text-danger errorMsg mb-0" >{formik.errors.password}</p>}
                             </div>
                             <div className="userUseContainer mt-3">
-                                <p className="">People who use our service may have uploaded your contact information to Facebook. Learn more.</p>
+                                <p className="">People who use our service may have uploaded your contact information to Social. Learn more.</p>
                                 <p>By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.</p>
                             </div>
                             <div className="btnRegisterContainer text-center">

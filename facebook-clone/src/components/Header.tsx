@@ -28,7 +28,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
         <>
             <div className="d-flex shadow-sm rounded bg-white sticky-top">
                 <div className="d-flex my-2 mx-2 align-items-center">
-                    <NavLink to={"/"}><img src="facebookLogo.png" alt="Logo" style={{ width: "40px", height: "40px" }} className="me-2" /></NavLink>
+                    <NavLink to={"/"}><img src="logo.png" alt="Logo" style={{ width: "40px", height: "40px" }} className="me-2" /></NavLink>
                     {/* <div className="d-flex justify-content-center align-items-center inputcontainer">
                         <i className="fa-solid fa-magnifying-glass serachIcon ps-2"></i>
                         <input type="text" placeholder="Search Facebook" className="searchFacebook d-none d-lg-block" />
@@ -41,8 +41,11 @@ const Header: FunctionComponent<HeaderProps> = () => {
                         <NavLink to={"/"} className=""> <i className="fa-solid fa-house fs-5"></i></NavLink>
                         <NavLink to={"/searchFriends"}><i className="fa-solid fa-user-group fs-5"></i></NavLink>
                         <NavLink to={"/watch"}><i className="fa-brands fa-square-youtube fs-5"></i></NavLink>
-                        <NavLink to={"/marketplace"}><i className="fa-solid fa-shop fs-5"></i></NavLink>
-                        <NavLink to={"/groups"}><i className="fa-solid fa-group-arrows-rotate fs-5"></i></NavLink>
+                        <NavLink to={"/saved-posts"}><i className="fa-solid fa-bookmark "></i></NavLink>
+                        <NavLink to={"/group"} onClick={(e) => {
+                            e.preventDefault()
+                            alert("Coming soon")
+                        }} ><i className="fa-solid fa-group-arrows-rotate fs-5" ></i></NavLink>
                     </div>
                 </div>
                 <div className="d-flex align-items-center">
@@ -51,6 +54,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
                             <li> <NavLink to={"/"} className="dropdown-item"> <i className="fa-solid fa-house fs-5"></i></NavLink></li>
                             <li><NavLink to={"/searchFriends"} className="dropdown-item" ><i className="fa-solid fa-user-group fs-5"></i></NavLink></li>
                             <li><NavLink to={"/watch"} className="dropdown-item"><i className="fa-brands fa-square-youtube fs-5"></i></NavLink></li>
+                            <li><NavLink to={"/saved-posts"} className="dropdown-item"><i className="fa-solid fa-bookmark"></i></NavLink></li>
                         </ul>
                     </div>
                     
@@ -60,7 +64,6 @@ const Header: FunctionComponent<HeaderProps> = () => {
                         setTimeout(() => {
                             navigate("/login")
                         }, 100)
-                        /* need to add toastify as well for login / log out signup and adding post deleting post as well for the commentrs section */
                     }} ><i className="fa-solid fa-right-from-bracket"></i></button>
                     <button className="btn rounded-circle bg-body-secondary btn1" title="notifications"><i className="fa-solid fa-bell"></i></button>
                     {/* Need to change the image to the users image */}

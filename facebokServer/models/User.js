@@ -37,7 +37,12 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    savedPosts:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "posts",
+        default: []
+    }]
 });
 
 const User = mongoose.model("users", userSchema);
