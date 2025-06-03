@@ -109,6 +109,17 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                                     </button>
                                                 </li>
                                             )}
+                                        <li>
+                                            <button className="btn btn-outline-info my-1" onClick={() => {
+                                                savePost(post._id as string).then(() => succesMsg("Post got saved")
+                                                ).catch((err) => {
+                                                    console.log(err);
+                                                    ErrorMsg("Something went wrong");
+                                                })
+                                            }} >
+                                                Save
+                                            </button>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

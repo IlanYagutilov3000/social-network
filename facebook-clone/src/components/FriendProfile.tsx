@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getFriendsDetails } from "../services/userServices";
+import { getFriendsDetails, savePost } from "../services/userServices";
 import { UserDetails } from "../interfaces/User";
 import LoadingPlaceHolder from "./LoadingPlaceHolder";
 import { Post } from "../interfaces/Post";
@@ -103,7 +103,7 @@ const FriendProfile: FunctionComponent<FriendProfileProps> = () => {
                                             : "Invalid date"}</span>
                                     </div>
                                     <div className="dropdown" >
-                                        <i className="fa-solid fa-ellipsis-vertical" data-bs-toggle="dropdown"></i>
+                                        <button className="btn" data-bs-toggle="dropdown"><i className="fa-solid fa-ellipsis-vertical postSettings" ></i></button>
                                         <ul className="dropdown-menu">
                                             {(user?.isAdmin || user?._id?.toString() ===
                                                 (typeof post.userId === "object" ? post.userId._id?.toString() : post.userId?.toString())) && (
@@ -121,6 +121,17 @@ const FriendProfile: FunctionComponent<FriendProfileProps> = () => {
                                                         </button>
                                                     </li>
                                                 )}
+                                            <li>
+                                                <button className="btn btn-outline-info my-1" onClick={() => {
+                                                    savePost(post._id as string).then(() => succesMsg("Post got saved")
+                                                    ).catch((err) => {
+                                                        console.log(err);
+                                                        ErrorMsg("Something went wrong");
+                                                    })
+                                                }} >
+                                                    Save
+                                                </button>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

@@ -99,7 +99,7 @@ const UserProfile: FunctionComponent<UserProfileProps> = () => {
                                             : "Invalid date"}</span>
                                     </div>
                                     <div className="dropdown" >
-                                        <i className="fa-solid fa-ellipsis-vertical" data-bs-toggle="dropdown"></i>
+                                        <button className="btn" data-bs-toggle="dropdown"><i className="fa-solid fa-ellipsis-vertical postSettings" ></i></button>
                                         <ul className="dropdown-menu">
                                             <li><button className="btn btn-outline-primary" onClick={() => {
                                                 setOpenEditPost(true)
