@@ -48,7 +48,6 @@ const EditUser: FunctionComponent<EditUserProps> = ({ onHide, refresh }) => {
             updateUSer({ ...values, _id: user._id as string }).then(() => {
                 onHide()
                 refresh()
-                /* window.location.reload(); */
                 succesMsg("User has been updated")
             }).catch((err) => {
                 console.log(err);

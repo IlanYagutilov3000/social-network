@@ -56,7 +56,6 @@ const Register: FunctionComponent<RegisterProps> = () => {
             };
             registerUser(formattedUser as any).then((res) => {
                 navigate("/login")
-                /* localStorage.setItem("token", JSON.stringify(res.data)) */
                 succesMsg("You've registered, Please sign in")
             }).catch((error) => {
                 console.log(error)

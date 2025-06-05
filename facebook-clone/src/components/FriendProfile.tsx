@@ -86,12 +86,11 @@ const FriendProfile: FunctionComponent<FriendProfileProps> = () => {
                                     <img src={typeof post.userId === "object"
                                         ? `${post.userId.profilePicture}`
                                         : "https://painrehabproducts.com/wp-content/uploads/2014/10/facebook-default-no-profile-pic.jpg"} alt="profile picutre of the user who created th epost" style={{ width: "40px", height: "40px" }} className="rounded-circle" />
-                                    {/* may need to chnage it from d-grow to align something... */}
                                     <div className="nameAndDate d-flex flex-column mx-2 flex-grow-1">
                                         <h5 className="fs-6 m-0" >{typeof post.userId === "object"
                                             ? `${post.userId.firstname} ${post.userId.lastname}`
                                             : "Unknown User"}</h5>
-                                        {/* need to replazce this with human date */}
+                                        {/* this code changed it to readible date*/}
                                         <span className="postDate" > {post.createdAt ?
                                             new Date(post.createdAt).toLocaleString("en-IL", {
                                                 year: "numeric",
@@ -153,14 +152,10 @@ const FriendProfile: FunctionComponent<FriendProfileProps> = () => {
 
             <DeleteFriendAccount show={openDeleteUser} onHide={() => setOpenDeleteUser(false)} refresh={refresh} userId={userId as string} />
 
-            {/* this needs to be changed to a diffrent user not the current user */}
             <EditFriendModal show={openEditUSer} onHide={() => setOpenEditUser(false)} refresh={refresh} userId={userId as string} />
 
         </>
     );
 }
-
-// edit user button needs to be shown only in the user profile
-// delete button needs to be only shown to the admin in the view friends page, the delete button in the user profile needs to be shown to admin and the user
 
 export default FriendProfile;

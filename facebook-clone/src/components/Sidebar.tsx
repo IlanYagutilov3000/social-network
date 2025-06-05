@@ -18,10 +18,8 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
     }, [dispatch, user])
     return (
         <>
-            {/* overflow-y-scroll */}
             <div className=" sidebarContainer d-flex flex-column align-items-center ">
                 <div className="itemContainer d-flex flex-column  ">
-                    {/* we need to have a map herefro the image of the user andd name */}
                     <div className="imgContainer d-flex align-items-center">
                         <img src={userDetails?.profilePicture} alt="profile picture" style={{ width: "36px", height: "36px" }} className="rounded-circle" />
                         {/* this needs t come from the data base */}

@@ -54,8 +54,6 @@ const CommentPost: FunctionComponent<CommentPostProps> = ({ postId }) => {
         }
     })
 
-    /* console.log(comments); */
-
     return (
         <>
             {post ? (
@@ -65,7 +63,7 @@ const CommentPost: FunctionComponent<CommentPostProps> = ({ postId }) => {
                             <h5 className="fs-6 m-0" >{typeof post.userId === "object"
                                 ? `${post.userId.firstname} ${post.userId.lastname}`
                                 : "Unknown User"}</h5>
-                            {/* need to replazce this with human date */}
+                            {/* this code makes the date readbile  */}
                             <span className="postDate" >{post.createdAt ? new Date(post.createdAt).toLocaleString("en-IL", {
                                 year: "numeric",
                                 month: "short",
@@ -102,9 +100,8 @@ const CommentPost: FunctionComponent<CommentPostProps> = ({ postId }) => {
                                                 <textarea className="form-control" id="text" placeholder="text"
                                                     name="text" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.text} style={{ height: "55px", backgroundColor: "#eef0f3" }} />
                                                 <label htmlFor="text">What's on your mind?</label>
-                                                {/* {formik.touched.text && formik.errors.text && <p className="text-danger fs-6" >{formik.errors.text}</p>} */}
                                             </div>
-                                            <button type="submit" disabled={!formik.dirty || !formik.isValid} className="btn commentBtn" /* onClick={() => setCommentAdded(!commentAdded)} */ >
+                                            <button type="submit" disabled={!formik.dirty || !formik.isValid} className="btn commentBtn" >
                                                 <i className="fa-regular fa-square-caret-right fs-5 text-primary"></i>
                                             </button>
                                         </div>

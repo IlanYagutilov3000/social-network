@@ -21,7 +21,7 @@ const updateSchema = Joi.object({
 })
 
 // get all user
-router.get("/all-users", /* auth */ async (req, res) => {
+router.get("/all-users", auth, async (req, res) => {
     try {
         const users = await User.find()
         res.status(200).send(users)
@@ -76,7 +76,6 @@ router.get("/:userId", auth, async (req, res,) => {
 // update user
 router.put("/:userId", auth, async (req, res) => {
     try {
-        // check if user is the current user or admin
         if (req.payload._id !== req.params.userId && !req.payload.isAdmin) return res.status(403).send("Access denied. Not authorized.");
 
         const { error } = await updateSchema.validateAsync(req.body)

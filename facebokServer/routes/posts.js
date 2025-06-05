@@ -12,14 +12,16 @@ const isAdminOrUSer = require("../middleware/isAdminOrUSer");
 const postSchema = Joi.object({
     userId: Joi.string().required(),
     text: Joi.string().required(),
-    image: Joi.string().optional(),
+    image: Joi.string().optional().allow(''),
 })
 
-// getting all the posts
-// this request needs to be open to every one and not only registed/ loged users
+
+// get all posts + sorted(newest / oldest, bonus)
 router.get("/", auth, async (req, res) => {
     try {
-        const posts = await Post.find().populate("userId", "firstname lastname profilePicture")
+        const posts = await Post.find({}).sort({
+            createdAt: req.query.sort === "oldest" ? 1 : -1
+        }).populate("userId", "firstname lastname profilePicture");
         res.status(200).send(posts)
     } catch (error) {
         res.status(400).send(error)
@@ -57,6 +59,7 @@ router.post("/", auth, async (req, res) => {
         res.status(400).send(error)
     }
 })
+
 
 //update post if user is admin or the one who created it
 router.put("/:postId", auth, isAdminOrUSer  ,async (req, res) => {
@@ -103,7 +106,6 @@ router.patch("/:postId", auth, async (req, res) => {
 })
 
 // deleting a spesific post
-// need to add here a middleware fo see if the user is admin or the user who created the post
 router.delete("/:postId", auth, isAdminOrUSer, async (req, res) => {
     try {
         const post = await Post.findByIdAndDelete(req.params.postId);

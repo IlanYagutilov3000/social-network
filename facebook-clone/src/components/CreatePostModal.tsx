@@ -26,8 +26,6 @@ const CreatePostModal: FunctionComponent<CreatePostModalProps> = ({show, onHide,
                 <Modal.Body >
                     <CreatePost onHide={onHide} refresh={refresh} />
                 </Modal.Body>
-                {/* <Modal.Footer >
-                </Modal.Footer> */}
             </Modal>
         </>
     );

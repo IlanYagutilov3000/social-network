@@ -2,6 +2,7 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { getAllUsers } from "../services/userServices";
 import { UserDetails } from "../interfaces/User";
 import { Link } from "react-router-dom";
+import './FriendsComponent.css'
 
 interface FriendsComponentProps {
 
@@ -36,7 +37,6 @@ const FriendsComponent: FunctionComponent<FriendsComponentProps> = () => {
 
                 {search &&
                     filterUsers.map((user) => (
-                        /* will beed to fix someting but this is good */
                         <Link to={`/profile/${user._id}`} key={user._id}>
                             <h5 className="fs-6 m-0">
                                 {user.firstname} {user.lastname}

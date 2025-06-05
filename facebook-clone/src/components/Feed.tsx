@@ -28,18 +28,17 @@ const Feed: FunctionComponent<FeedProps> = () => {
     const [openCreatePost, setCreatePost] = useState<boolean>(false)
     const [postChange, setPostChange] = useState<boolean>(false)
     const [openEditPost, setOpenEditPost] = useState<boolean>(false)
+    const [sortBy, setSortBy] = useState<"newest" | "oldest">("oldest");
 
     let refresh = () => {
         setPostChange(!postChange)
     }
 
     useEffect(() => {
-        getAllPosts().then((res) => {
-            setPosts(res.data)
-        }).catch((err) => {
-            console.log(err)
-        })
-    }, [postChange])
+        getAllPosts(sortBy)
+            .then((res) => setPosts(res.data))
+            .catch((err) => console.log(err));
+    }, [postChange, sortBy]);
 
     useEffect(() => {
         dispatch(fetchUserDetails())
@@ -48,6 +47,20 @@ const Feed: FunctionComponent<FeedProps> = () => {
     return (
         <>
             <div className="feedContainer ">
+                <div className="d-flex justify-content-center mb-1 gap-2">
+                    <button
+                        className={`btn btn-sm ${sortBy === "oldest" ? "btn-primary" : "btn-outline-primary"}`}
+                        onClick={() => setSortBy("oldest")}
+                    >
+                        Old
+                    </button>
+                    <button
+                        className={`btn btn-sm ${sortBy === "newest" ? "btn-primary" : "btn-outline-primary"}`}
+                        onClick={() => setSortBy("newest")}
+                    >
+                        New
+                    </button>
+                </div>
                 <div className="createPostModalContainer d-flex flex-column shadow-sm mb-1">
                     <div className="d-flex modalDiv">
                         <Link to={"/profile"}> <img src={userDetails?.profilePicture} alt="Profile Picture" style={{ width: "40px", height: "40px" }} className="rounded-circle" /> </Link>
@@ -63,13 +76,12 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                 <img src={typeof post.userId === "object"
                                     ? `${post.userId.profilePicture}`
                                     : "https://painrehabproducts.com/wp-content/uploads/2014/10/facebook-default-no-profile-pic.jpg"} alt="profile picutre of the user who created th epost" style={{ width: "40px", height: "40px" }} className="rounded-circle" />
-                                {/* may need to chnage it from d-grow to align something... */}
                                 <div className="nameAndDate d-flex flex-column mx-2 flex-grow-1">
                                     <Link to={`/profile/${typeof post.userId === "object" ? post.userId._id : post.userId}`}><h5 className="fs-6 m-0" >{typeof post.userId === "object"
                                         ? `${post.userId.firstname} ${post.userId.lastname}`
                                         : "Unknown User"}</h5></Link>
 
-                                    {/* need to replazce this with human date */}
+                                    {/* this code makes the date readbile */}
                                     <span className="postDate" > {post.createdAt ?
                                         new Date(post.createdAt).toLocaleString("en-IL", {
                                             year: "numeric",
@@ -80,26 +92,25 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                         })
                                         : "Invalid date"}</span>
                                 </div>
-                                {/* will need to fid a better way to do this  */}
                                 <div className="dropdown " >
                                     <button className="btn" data-bs-toggle="dropdown"><i className="fa-solid fa-ellipsis-vertical postSettings" ></i></button>
                                     <ul className="dropdown-menu">
                                         {(user?.isAdmin || user?._id?.toString() ===
                                             (typeof post.userId === "object" ? post.userId._id?.toString() : post.userId?.toString())) && (
                                                 <li>
-                                                <button className="btn btn-outline-primary" onClick={() => {
-                                                    setOpenEditPost(true)
-                                                    setPostId(post._id as string)
-                                                }} >Edit</button>
+                                                    <button className="btn btn-outline-primary" onClick={() => {
+                                                        setOpenEditPost(true)
+                                                        setPostId(post._id as string)
+                                                    }} >Edit</button>
                                                 </li>
                                             )}
                                         {(user?.isAdmin || user?._id?.toString() ===
                                             (typeof post.userId === "object" ? post.userId._id?.toString() : post.userId?.toString())) && (
                                                 <li>
-                                                <button className="btn btn-outline-danger my-1" onClick={() => {
+                                                    <button className="btn btn-outline-danger my-1" onClick={() => {
                                                         deletePost(post._id as string).then(() => {
                                                             setPostChange(!postChange);
-                                                             succesMsg("Post was deleted")
+                                                            succesMsg("Post was deleted")
                                                         }).catch((err) => {
                                                             console.log(err);
                                                             ErrorMsg("Something went wrong")
@@ -159,7 +170,7 @@ const Feed: FunctionComponent<FeedProps> = () => {
                 ))) : (<LoadingPlaceHolder />)}
             </div>
 
-            <CreatePostModal show={openCreatePost} onHide={() => setCreatePost(false)} refresh={refresh} /* we need here user id to insert to the post schema wo will know which user created the post and show it to them and to soe edit , deleting */ />
+            <CreatePostModal show={openCreatePost} onHide={() => setCreatePost(false)} refresh={refresh} />
 
             <CommentPostModal show={openCommentPost} onHide={() => setOpenCommentPost(false)} refresh={refresh} postId={postId} />
 

@@ -29,11 +29,6 @@ const Header: FunctionComponent<HeaderProps> = () => {
             <div className="d-flex shadow-sm rounded bg-white sticky-top">
                 <div className="d-flex my-2 mx-2 align-items-center">
                     <NavLink to={"/"}><img src="logo.png" alt="Logo" style={{ width: "40px", height: "40px" }} className="me-2" /></NavLink>
-                    {/* <div className="d-flex justify-content-center align-items-center inputcontainer">
-                        <i className="fa-solid fa-magnifying-glass serachIcon ps-2"></i>
-                        <input type="text" placeholder="Search Facebook" className="searchFacebook d-none d-lg-block" />
-                    </div> */}
-
                 </div>
                 <div className="d-flex align-items-center justify-content-center flex-grow-1">
                     {/* color text-primary */}

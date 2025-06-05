@@ -3,6 +3,7 @@ import { getPostById, updatePost } from "../services/postServices";
 import { Post } from "../interfaces/Post";
 import { FormikValues, useFormik } from "formik";
 import * as yup from "yup"
+import { ErrorMsg, succesMsg } from "../services/feedback";
 
 interface EditPostProps {
     onHide: Function;
@@ -18,20 +19,14 @@ const EditPost: FunctionComponent<EditPostProps> = ({onHide, refresh, postId}) =
         userId: ""
     })
 
-    /* useEffect(() => {
-        getPostById(postId).then((res) => {
-            setPost(res.data)
-        }).catch((err) => {
-            console.log(err);
-        })
-    }, []) */
     useEffect(() => {
         getPostById(postId)
             .then((res) => {
                 const postFromServer = res.data;
                 setPost({
                     ...postFromServer,
-                    userId: (postFromServer.userId as any)._id // <-- Only keep the userId string
+                    userId: (postFromServer.userId as any)._id,
+                    image: postFromServer.image ?? "" // <-- this makes the image a string if there's no image
                 });
             })
             .catch((err) => {
@@ -52,11 +47,12 @@ const EditPost: FunctionComponent<EditPostProps> = ({onHide, refresh, postId}) =
         }),
         onSubmit: (values) => {
             updatePost({...values, _id: postId}).then(() => {
-                // we need to add toast here and across the app
                 onHide()
                 refresh()
+                succesMsg("You've updated the post")
             }).catch((err) => {
                 console.log(err);
+                ErrorMsg("An error has accured")
             })
         }
     })
@@ -72,7 +68,6 @@ const EditPost: FunctionComponent<EditPostProps> = ({onHide, refresh, postId}) =
                                 <textarea className="form-control" id="text" placeholder="text"
                                     name="text" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.text} style={{ height: "125px" }} />
                                 <label htmlFor="text">What's on your mind?</label>
-                                {/* {formik.touched.text && formik.errors.text && <p className="text-danger fs-6" >{formik.errors.text}</p>} */}
                             </div>
                         </div>
                         <div className="col-md">
@@ -80,7 +75,6 @@ const EditPost: FunctionComponent<EditPostProps> = ({onHide, refresh, postId}) =
                                 <input type="text" className="form-control" id="image" placeholder="image"
                                     name="image" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.image} />
                                 <label htmlFor="image">Upload URL</label>
-                                {/* {formik.touched.image && formik.errors.image && <p className="text-danger fs-6" >{formik.errors.image}</p>} */}
                             </div>
                         </div>
                     </div>

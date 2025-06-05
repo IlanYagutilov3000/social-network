@@ -20,7 +20,6 @@ export function getAllUsers() {
     })
 }
 
-
 // get current user
 // there is auth validation here that's why header is here
 export function getUserById() {

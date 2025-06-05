@@ -16,7 +16,6 @@ interface UserProfileProps {
 }
 
 const UserProfile: FunctionComponent<UserProfileProps> = () => {
-    /* const user = useSelector((state: rootState) => state.auth.user) */
     const [posts, setPosts] = useState<Post[]>([])
     const dispatch = useDispatch<appDispach>()
     const { userDetails, loading } = useSelector((state: rootState) => state.userDetails);
@@ -144,7 +143,6 @@ const UserProfile: FunctionComponent<UserProfileProps> = () => {
 
             <EditUserModal show={openEditUSer} onHide={() => setOpenEditUser(false)} refresh={refresh} userId={user?._id as string} />
 
-            
             <EditPostModal show={openEditPost} onHide={() => setOpenEditPost(false)} refresh={refresh} postId={postId} />
 
         </>
@@ -152,9 +150,3 @@ const UserProfile: FunctionComponent<UserProfileProps> = () => {
 }
 
 export default UserProfile;
-
-// what we need:
-// need the user profile
-// need the user full name
-// need the user posts
-// need the user birthday

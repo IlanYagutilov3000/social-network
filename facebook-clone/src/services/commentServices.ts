@@ -2,9 +2,6 @@ import axios from "axios";
 import { Comment } from "../interfaces/Comment";
 
 const api: string = `${process.env.REACT_APP_API}/comment`
-// I thin k we'll need to change a few of them from params to body
-// the use of params with the backend functions are worng and the frontend as well
-
 
 // get the comments from a specific post
 export function getComments(postId: string){
