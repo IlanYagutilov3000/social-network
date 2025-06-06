@@ -93,7 +93,7 @@ const SavedPosts: FunctionComponent<SavedPostsProps> = () => {
                                                 });
                                         }}
                                     >
-                                        Saved
+                                        Unsave
                                     </p>
                                 </div>
                             </div>
