@@ -60,7 +60,9 @@ const Header: FunctionComponent<HeaderProps> = () => {
                             navigate("/login")
                         }, 100)
                     }} ><i className="fa-solid fa-right-from-bracket"></i></button>
-                    <button className="btn rounded-circle bg-body-secondary btn1" title="notifications"><i className="fa-solid fa-bell"></i></button>
+                    <button className="btn rounded-circle bg-body-secondary btn1" title="notifications" onClick={() => {
+                        alert("Coming soon")
+                    }} ><i className="fa-solid fa-bell"></i></button>
                     {/* Need to change the image to the users image */}
                     <img src={userDetails?.profilePicture} alt="Logo" style={{ width: "40px", height: "40px" }} className="mx-3" />
                 </div>

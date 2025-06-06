@@ -77,7 +77,7 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                     ? `${post.userId.profilePicture}`
                                     : "https://painrehabproducts.com/wp-content/uploads/2014/10/facebook-default-no-profile-pic.jpg"} alt="profile picutre of the user who created th epost" style={{ width: "40px", height: "40px" }} className="rounded-circle" />
                                 <div className="nameAndDate d-flex flex-column mx-2 flex-grow-1">
-                                    <Link to={`/profile/${typeof post.userId === "object" ? post.userId._id : post.userId}`}><h5 className="fs-6 m-0" >{typeof post.userId === "object"
+                                    <Link style={{ color: "black", textDecoration: "none"}} to={`/profile/${typeof post.userId === "object" ? post.userId._id : post.userId}`}><h5 className="fs-6 m-0" >{typeof post.userId === "object"
                                         ? `${post.userId.firstname} ${post.userId.lastname}`
                                         : "Unknown User"}</h5></Link>
 

@@ -23,10 +23,10 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
                     <div className="imgContainer d-flex align-items-center">
                         <img src={userDetails?.profilePicture} alt="profile picture" style={{ width: "36px", height: "36px" }} className="rounded-circle" />
                         {/* this needs t come from the data base */}
-                        <span className="px-2">{userDetails?.firstname} {userDetails?.lastname} </span>
+                        <Link to={"/profile"} style={{ color: "black", textDecorationColor: "black" }} > <span className="px-2">{userDetails?.firstname} {userDetails?.lastname} </span> </Link>
                     </div>
                     <Link className="iconHolder d-flex align-items-center px-2" to={"/searchFriends"}>
-                    {/* tried to change the icon doesn't change, don't kno why */}
+                    {/* tried to change the icon doesn't change, don't know why */}
                         <i className="fa-solid fa-user-group"></i>
                         <p className="m-0">Friends</p>
                     </Link>

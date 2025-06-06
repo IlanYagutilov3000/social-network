@@ -37,7 +37,7 @@ const FriendsComponent: FunctionComponent<FriendsComponentProps> = () => {
 
                 {search &&
                     filterUsers.map((user) => (
-                        <Link to={`/profile/${user._id}`} key={user._id}>
+                        <Link to={`/profile/${user._id}`} key={user._id} style={{ textDecoration: "none" }} >
                             <h5 className="fs-6 m-0">
                                 {user.firstname} {user.lastname}
                             </h5>
