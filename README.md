@@ -80,9 +80,10 @@ npm start
 💬 Direct Messaging / Chat
 🧼 Code Cleanup and Refactoring
 📱 Mobile-First Redesign (maybe react native)
+🖼️ File upload from your device not image url
 
 - ⚡ Real-Time Feed Updates — I'm aware that in a social app, users expect posts to appear instantly across all screens without refreshing.
-- While the current version uses traditional REST-based updates, real-time syncing (via WebSockets/Socket.IO) is planned for a future version to improve interactivity when multiple users are online.
+While the current version uses traditional REST-based updates, real-time syncing (via WebSockets/Socket.IO) is planned for a future version to improve interactivity when multiple users are online.
 -  ⚠️ No friends/follow system yet — the feed currently shows all user posts.
 
 License
