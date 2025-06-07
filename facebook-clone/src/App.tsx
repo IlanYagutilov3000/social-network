@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import SavedPosts from './components/SavedPosts';
+import PageNotFound from './components/PageNotFound';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path='/groups' element={<ProtectedRoutes><Groups /></ProtectedRoutes>} />
           <Route path='/profile' element={<ProtectedRoutes><UserProfile /></ProtectedRoutes>} />
           <Route path='/profile/:userId' element={<ProtectedRoutes><FriendProfile /></ProtectedRoutes>} />
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>
     </div>
