@@ -38,7 +38,7 @@ This project was built using the MERN stack (MongoDB, Express, React, Node.js) a
 
 **Clone the repo**
 ```bash
-git clone https://github.com/yourusername/facebook.git
+git clone https://github.com/yourusername/social-network.git
 ```
 
 ### Install backend dependencies
