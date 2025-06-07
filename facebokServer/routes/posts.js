@@ -16,7 +16,7 @@ const postSchema = Joi.object({
 })
 
 
-// get all posts + sorted(newest / oldest, bonus)
+// get all posts + sorted(newest / oldest)
 router.get("/", auth, async (req, res) => {
     try {
         const posts = await Post.find({}).sort({

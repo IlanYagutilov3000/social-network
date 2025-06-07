@@ -4,7 +4,7 @@ import { Post } from "../interfaces/Post";
 
 const api: string = `${process.env.REACT_APP_API}/post`
 
-// get all posts + sorted(bonus)
+// get all posts + sorted
 export const getAllPosts = (sortBy: "newest" | "oldest") => {
     return axios.get(`${api}?sort=${sortBy}`, { headers: { Authorization: JSON.parse(localStorage.getItem("token") as string) } });
 };
