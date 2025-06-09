@@ -1,0 +1,19 @@
+.commentOnwerDetails {
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+}
+
+.commentText {
+    padding: 8px 12px !important;
+    max-width: 550px;
+    background-color: #eef0f3;
+    display: inline-block;
+    word-wrap: break-word;
+    border-radius: 16px 16px 16px 16px;
+}
+
+.commentBtn {
+    border: none;
+}

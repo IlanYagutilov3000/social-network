@@ -12,6 +12,7 @@ import { fetchUserDetails } from "../redux/slices/userDetails";
 import EditPostModal from "./EditPostModal";
 import { ErrorMsg, succesMsg } from "../services/feedback";
 import { savePost } from "../services/userServices";
+import './Feed.css'
 
 interface FeedProps {
 

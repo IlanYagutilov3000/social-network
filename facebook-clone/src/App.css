@@ -1,53 +1,10 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 .inputcontainer {
     border-radius: 20px;
     background-color: #eef0f3;
 }
 
-.iconContainer {
-    width: 600px !important;
-}
-
-.iconContainer i:hover {
-    color: #0084ff;
-    cursor: pointer;
-}
-
-.iconContainer a {
-    color: black;
-}
-
-.iconContainer a.active {
-    color: #0084ff;
-    border-bottom: 1px solid #0084ff;
-}
-
-.btn1:hover {
-    background-color: #e2e2e2 !important;
-}
-
-.spanPass {
-    cursor: pointer;
-}
-
-.facebookName p {
-    max-width: 500px;
-    font-size: 28px;
-    line-height: 1 !important;
-}
-
 .line {
     border-bottom: 1px solid #dadde1;
-}
-
-.formContainer {
-    width: 396px;
-    min-height: 350px;
 }
 
 .formContainer .form-control {
@@ -55,66 +12,8 @@
     padding: 14px;
 }
 
-.btnContainer button {
-    padding: 14px;
-}
-
-.btnContainerTwo p {
-    background-color: #42b72a !important;
-    padding: 14px;
-}
-
-.btnContainerTwo p a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.btnContainerTwo p:hover {
-    background-color: #3fa72a !important;
-}
-
 .container {
     height: 62vh;
-}
-
-.registerContainer {
-    width: 435px;
-}
-
-.bDate,
-.gender {
-    font-size: 12px;
-}
-
-.userUseContainer p {
-    max-width: 380px;
-    font-size: 11px;
-}
-
-.birthdayContainer select {
-    width: 125px;
-}
-
-.genderConainer label {
-    border: 1px solid black;
-    width: 125px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.btnRegister {
-    background-color: #00a400 !important;
-    color: #fff;
-    width: 194px;
-}
-
-.btnRegister:hover {
-    color: #eeeeee;
-}
-
-.infoZise {
-    font-size: 11px;
-    cursor: pointer;
 }
 
 .errorMsg {
@@ -136,61 +35,8 @@
     width: 280px;
 }
 
-.iconHolder {
-    cursor: pointer;
-    width: 264px;
-    text-decoration: none;
-    color: black;
-}
-
-.iconHolder:hover {
-    background-color: #e2e2e2;
-}
-
-.iconHolder a {
-    color: black;
-    text-decoration: none;
-
-}
-
-.iconHolder p {
-    padding: 12px 0px;
-    font-weight: 500;
-}
-
-.iconHolder i {
-    font-size: 30px !important;
-    margin-right: 15px;
-    font-weight: 250;
-}
-
-.imgContainer span {
-    font-size: 15px;
-    font-weight: 500;
-    padding: 12px 0px;
-}
-
 .feedContainer {
     width: 680px;
-}
-
-.createPostModalContainer {
-    padding: 12px 16px 10px;
-    /* border-bottom: solid #f2f4f7 10px; */
-    border-radius: 16px 16px 16px 16px;
-    background-color: #fff;
-}
-
-.modalHolder {
-    background-color: #eef0f3;
-    padding: 8px 12px;
-    border-radius: 20px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.modalHolder:hover {
-    background-color: #e2e2e2;
 }
 
 .cardContainer {
@@ -202,7 +48,7 @@
     padding: 8px 12px 0px;
 }
 
-.postSettings{
+.postSettings {
     cursor: pointer;
 }
 
@@ -219,68 +65,34 @@
     font-size: 12px;
 }
 
-.likebutton{
+.savebutton {
     cursor: pointer;
-}
-.commentbutton{
-    cursor: pointer;
-}
-.savebutton{
-    cursor: pointer;
-}
-
-.commentBtn {
-    border: none;
-}
-
-.commentOnwerDetails {
-    font-size: 14px;
-    padding: 0;
-    margin: 0;
-    font-weight: 700;
-}
-
-.commentText {
-    padding: 8px 12px !important;
-    max-width: 550px;
-    background-color: #eef0f3;
-    display: inline-block;
-    word-wrap: break-word;
-    border-radius: 16px 16px 16px 16px;
 }
 
 /* responsive */
-@media (max-width: 865px) {
-    .iconContainer {
-        display: none !important;
-    }
-}
-
-@media (max-width: 875px) {
-    .sidebarContainer {
-        display: none !important;
-    }
-}
-
 @media (max-width: 668px) {
     .userCards {
         width: 540px;
     }
 }
+
 @media (max-width: 545px) {
     .userCards {
         width: 350px;
     }
 }
-@media (max-width: 545px) {
 
-    .firstAndLast input  {
-        width: 150px;;
+@media (max-width: 545px) {
+    .firstAndLast input {
+        width: 150px;
+        ;
     }
-    .EditingUserContainer form  {
-        width: 300px ;
+
+    .EditingUserContainer form {
+        width: 300px;
     }
-    .EditingUserContainer button  {
+
+    .EditingUserContainer button {
         width: 150px;
     }
 }

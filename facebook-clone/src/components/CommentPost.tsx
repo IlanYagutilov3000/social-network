@@ -9,6 +9,7 @@ import * as yup from "yup";
 import { useSelector } from "react-redux";
 import { rootState } from "../redux/store";
 import Spinner from "./Spinner";
+import './CommentPost.css'
 
 interface CommentPostProps {
     postId: string

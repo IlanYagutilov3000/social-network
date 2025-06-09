@@ -1,0 +1,39 @@
+.registerContainer {
+    width: 435px;
+}
+
+.bDate,
+.gender {
+    font-size: 12px;
+}
+
+.userUseContainer p {
+    max-width: 380px;
+    font-size: 11px;
+}
+
+.birthdayContainer select {
+    width: 125px;
+}
+
+.genderConainer label {
+    border: 1px solid black;
+    width: 125px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnRegister {
+    background-color: #00a400 !important;
+    color: #fff;
+    width: 194px;
+}
+
+.btnRegister:hover {
+    color: #eeeeee;
+}
+
+.infoZise {
+    font-size: 11px;
+    cursor: pointer;
+}

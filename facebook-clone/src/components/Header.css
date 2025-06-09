@@ -1,0 +1,28 @@
+.iconContainer {
+    width: 600px !important;
+}
+
+.iconContainer i:hover {
+    color: #0084ff;
+    cursor: pointer;
+}
+
+.iconContainer a {
+    color: black;
+}
+
+.iconContainer a.active {
+    color: #0084ff;
+    border-bottom: 1px solid #0084ff;
+}
+
+.btn1:hover {
+    background-color: #e2e2e2 !important;
+}
+
+/* responsive */
+@media (max-width: 865px) {
+    .iconContainer {
+        display: none !important;
+    }
+}

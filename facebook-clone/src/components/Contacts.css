@@ -1,0 +1,8 @@
+
+
+/* responsive */
+@media (max-width: 875px) {
+    .sidebarContainer {
+        display: none !important;
+    }
+}

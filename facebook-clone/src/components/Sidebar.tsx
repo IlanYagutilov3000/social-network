@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchUserDetails } from "../redux/slices/userDetails";
 import { rootState, appDispach } from "../redux/store";
+import './Sidebar.css'
 
 interface SidebarProps {
 

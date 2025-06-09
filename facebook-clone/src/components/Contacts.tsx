@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import './Contacts.css'
 
 interface ContactsProps {
 

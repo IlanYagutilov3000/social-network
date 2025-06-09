@@ -5,6 +5,7 @@ import { User } from "../interfaces/User";
 import * as yup from "yup";
 import { registerUser } from "../services/userServices";
 import { ErrorMsg, succesMsg } from "../services/feedback";
+import './Register.css'
 
 interface RegisterProps {
 

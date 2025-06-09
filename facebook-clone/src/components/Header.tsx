@@ -7,6 +7,7 @@ import { getUserById } from "../services/userServices";
 import { fetchUserDetails } from "../redux/slices/userDetails";
 import { logoutUser } from "../redux/slices/authSlice";
 import { succesMsg } from "../services/feedback";
+import "./Header.css"
 
 interface HeaderProps {
 

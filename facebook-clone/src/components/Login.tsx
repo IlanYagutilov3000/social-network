@@ -7,6 +7,7 @@ import { login } from "../services/userServices";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/slices/authSlice";
 import { ErrorMsg, succesMsg } from "../services/feedback";
+import './Login.css'
 
 interface LoginProps {
 
