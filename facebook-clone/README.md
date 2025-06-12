@@ -27,8 +27,8 @@ It communicates with a Node.js + Express backend and uses MongoDB as the databas
 - Context API / Redux (if used)
 
 ## 📷 Screenshots
-
-![feedScreenshot](https://github.com/user-attachments/assets/29b41a64-4e00-4a52-a60c-ce492842a8aa) 
+what ever is marked with an arrow(image below) you can go to either your account or friends account
+![feedScreenshot](https://github.com/user-attachments/assets/d1870aea-7622-4519-b8fa-e48f8729da11)
 ![comments](https://github.com/user-attachments/assets/8d37872d-8dc5-4313-9030-b87317946ac0)
 ![adminPostSettingd](https://github.com/user-attachments/assets/2ef94543-3df6-49a2-806e-bcf67e19e634)
 ![postSettings](https://github.com/user-attachments/assets/ad3ba038-faf8-476a-9ddd-75e061d36950)
