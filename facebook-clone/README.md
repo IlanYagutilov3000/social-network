@@ -30,13 +30,17 @@ It communicates with a Node.js + Express backend and uses MongoDB as the databas
 what ever is marked with an arrow(image below) you can go to either your account or friends account
 ![feedScreenshot](https://github.com/user-attachments/assets/d1870aea-7622-4519-b8fa-e48f8729da11)
 ![comments](https://github.com/user-attachments/assets/8d37872d-8dc5-4313-9030-b87317946ac0)
+This is admin settings(image below)
 ![adminPostSettingd](https://github.com/user-attachments/assets/2ef94543-3df6-49a2-806e-bcf67e19e634)
+regular user permission(image below)
 ![postSettings](https://github.com/user-attachments/assets/ad3ba038-faf8-476a-9ddd-75e061d36950)
 ![register](https://github.com/user-attachments/assets/cd7638b6-9672-48ed-b6de-6df2edef80c3)
 ![login](https://github.com/user-attachments/assets/f46d58c3-4d30-4b04-bdac-83c7e49139af)
 ![savedPosts](https://github.com/user-attachments/assets/d0fdd5a7-6b48-4b46-8ac9-6e1767e1d950)
 ![SearchFriends](https://github.com/user-attachments/assets/a71da134-3579-476d-b177-6961b5d3f041)
 ![userPRifole](https://github.com/user-attachments/assets/a9ba3d5f-73c0-4031-93fb-88bf4f91a6fd)
+![comments](https://github.com/user-attachments/assets/0d7333d1-aaf4-4a78-9218-50016cf1cd47)
+![createPosts](https://github.com/user-attachments/assets/0fda90c0-7a19-4152-92da-6a92596853b3)
 
 
 ## ⚙️ Getting Started
