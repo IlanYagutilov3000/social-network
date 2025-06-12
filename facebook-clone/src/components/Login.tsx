@@ -30,7 +30,6 @@ const Login: FunctionComponent<LoginProps> = () => {
             login(values as UserLogin).then((res) => {
                 const token = res.data
                 dispatch(loginUser({token}))
-                // we need to save the suer in a global state later
                 navigate("/")
                 succesMsg("You've logged in")
             }).catch((err) => {
@@ -60,7 +59,9 @@ const Login: FunctionComponent<LoginProps> = () => {
                         <div className="btnContainer mb-2">
                             <button type="submit" className="btn btn-primary w-100 fw-bold">Log In</button>
                         </div>
-                        <p className="text-primary text-decoration-underline spanPass text-center">Forgot password?</p>
+                        <p className="text-primary text-decoration-underline spanPass text-center" onClick={() => {
+                            alert("Coming soon")
+                        }} >Forgot password?</p>
                         <div className="line"></div>
                     </form>
                     <div className="text-center my-3 btnContainerTwo ">

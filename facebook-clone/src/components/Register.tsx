@@ -84,12 +84,12 @@ const Register: FunctionComponent<RegisterProps> = () => {
                     <div className="registerFromContainer d-flex flex-column align-items-center p-3 ">
                         <form action="" onSubmit={formik.handleSubmit}>
                             <div className="inputControl d-flex">
-                                <div className="firstAndLast d-flex flex-column">
-                                    <input type="text" placeholder="First name" className="me-2 p-1" value={formik.values.firstname} onChange={formik.handleChange} onBlur={formik.handleBlur} name="firstname" />
+                                <div className="firstAndLast d-flex flex-column registerStyle">
+                                    <input type="text" placeholder="First name" className="me-2 p-1 " value={formik.values.firstname} onChange={formik.handleChange} onBlur={formik.handleBlur} name="firstname" />
                                     {formik.touched.firstname && formik.errors.firstname && <p className="text-danger errorMsgRegister mb-0" >{formik.errors.firstname}</p>}
                                 </div>
-                                <div className="firstAndLast d-flex flex-column">
-                                    <input type="text" placeholder="Last name" className="p-1" value={formik.values.lastname} onChange={formik.handleChange} onBlur={formik.handleBlur} name="lastname" />
+                                <div className="firstAndLast d-flex flex-column registerStyle">
+                                    <input type="text" placeholder="Last name" className="p-1 " value={formik.values.lastname} onChange={formik.handleChange} onBlur={formik.handleBlur} name="lastname" />
                                     {formik.touched.firstname && formik.errors.firstname && <p className="text-danger errorMsgRegister mb-0" >{formik.errors.firstname}</p>}
                                 </div>
                             </div>

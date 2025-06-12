@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { getSavedPosts, savePost } from "../services/userServices";
-import LoadingPlaceHolder from "./LoadingPlaceHolder";
+import LoadingPlaceHolder from "./loadingComp/LoadingPlaceHolder";
 import { ErrorMsg, succesMsg } from "../services/feedback";
 import { Post } from "../interfaces/Post";
 import { Link } from "react-router-dom";
@@ -41,7 +41,7 @@ const SavedPosts: FunctionComponent<SavedPostsProps> = () => {
                                         className="rounded-circle"
                                     />
                                     <div className="nameAndDate d-flex flex-column mx-2 flex-grow-1">
-                                        <Link
+                                        <Link style={{ color: "black", textDecoration: "none" }}
                                             to={`/profile/${typeof post.userId === "object" ? post.userId._id : post.userId
                                                 }`}
                                         >

@@ -2,7 +2,7 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { deletePost, getAllPosts, likeAndUnlikePosts } from "../services/postServices";
 import { Post } from "../interfaces/Post";
-import LoadingPlaceHolder from "./LoadingPlaceHolder";
+import LoadingPlaceHolder from "./loadingComp/LoadingPlaceHolder";
 import CreatePostModal from "./CreatePostModal";
 import { getComments } from "../services/commentServices";
 import CommentPostModal from "./CommentPostModal";
@@ -78,7 +78,7 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                     ? `${post.userId.profilePicture}`
                                     : "https://painrehabproducts.com/wp-content/uploads/2014/10/facebook-default-no-profile-pic.jpg"} alt="profile picutre of the user who created th epost" style={{ width: "40px", height: "40px" }} className="rounded-circle" />
                                 <div className="nameAndDate d-flex flex-column mx-2 flex-grow-1">
-                                    <Link style={{ color: "black", textDecoration: "none"}} to={`/profile/${typeof post.userId === "object" ? post.userId._id : post.userId}`}><h5 className="fs-6 m-0" >{typeof post.userId === "object"
+                                    <Link style={{ color: "black", textDecoration: "none" }} to={`/profile/${typeof post.userId === "object" ? post.userId._id : post.userId}`}><h5 className="fs-6 m-0" >{typeof post.userId === "object"
                                         ? `${post.userId.firstname} ${post.userId.lastname}`
                                         : "Unknown User"}</h5></Link>
 
@@ -142,7 +142,10 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                 </div>
                             )}
                             <div className="likeAndCommentCount d-flex justify-content-between">
-                                <span>Likes {post.likes?.length} </span>
+                                <span>
+                                    <i className={`fa-solid fa-thumbs-up me-1 ${post.likes?.includes(user?._id as string) ? 'fa-solid text-primary' : 'fa-regular'}`}></i>
+                                    {post.likes?.length}
+                                </span>
                                 <span>comment</span>
                             </div>
                             <hr className="m-0" />

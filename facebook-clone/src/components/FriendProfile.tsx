@@ -2,7 +2,7 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFriendsDetails, savePost } from "../services/userServices";
 import { UserDetails } from "../interfaces/User";
-import LoadingPlaceHolder from "./LoadingPlaceHolder";
+import LoadingPlaceHolder from "./loadingComp/LoadingPlaceHolder";
 import { Post } from "../interfaces/Post";
 import { deletePost, getAllPostsOfTheUser } from "../services/postServices";
 import { useSelector } from "react-redux";

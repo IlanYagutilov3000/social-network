@@ -4,7 +4,7 @@ import { appDispach, rootState } from "../redux/store";
 import { fetchUserDetails } from "../redux/slices/userDetails";
 import { deletePost, getAllPostsOfTheUser } from "../services/postServices";
 import { Post } from "../interfaces/Post";
-import LoadingPlaceHolder from "./LoadingPlaceHolder";
+import LoadingPlaceHolder from "./loadingComp/LoadingPlaceHolder";
 import DeleteUserModal from "./DeleteUserModal";
 import DeleteFriendAccount from "./DeleteFriendAccountModal";
 import EditUserModal from "./EditUserModal";
@@ -81,12 +81,10 @@ const UserProfile: FunctionComponent<UserProfileProps> = () => {
                                     <img src={typeof post.userId === "object"
                                         ? `${post.userId.profilePicture}`
                                         : "https://painrehabproducts.com/wp-content/uploads/2014/10/facebook-default-no-profile-pic.jpg"} alt="profile picutre of the user who created th epost" style={{ width: "40px", height: "40px" }} className="rounded-circle" />
-                                    {/* may need to chnage it from d-grow to align something... */}
                                     <div className="nameAndDate d-flex flex-column mx-2 flex-grow-1">
                                         <h5 className="fs-6 m-0" >{typeof post.userId === "object"
                                             ? `${post.userId.firstname} ${post.userId.lastname}`
                                             : "Unknown User"}</h5>
-                                        {/* need to replazce this with human date */}
                                         <span className="postDate" > {post.createdAt ?
                                             new Date(post.createdAt).toLocaleString("en-IL", {
                                                 year: "numeric",
@@ -107,17 +105,17 @@ const UserProfile: FunctionComponent<UserProfileProps> = () => {
                                             {(user?.isAdmin || user?._id?.toString() ===
                                                 (typeof post.userId === "object" ? post.userId._id?.toString() : post.userId?.toString())) && (
                                                     <li>
-                                                    <button className="btn btn-outline-danger my-1" onClick={() => {
-                                                        deletePost(post._id as string).then(() => {
-                                                            setPostChange(!postChange);
-                                                            succesMsg("Post was deleted")
-                                                        }).catch((err) => {
-                                                            console.log(err);
-                                                            ErrorMsg("Something went wrong")
-                                                        });
-                                                    }}>
-                                                        Delete
-                                                    </button>
+                                                        <button className="btn btn-outline-danger my-1" onClick={() => {
+                                                            deletePost(post._id as string).then(() => {
+                                                                setPostChange(!postChange);
+                                                                succesMsg("Post was deleted")
+                                                            }).catch((err) => {
+                                                                console.log(err);
+                                                                ErrorMsg("Something went wrong")
+                                                            });
+                                                        }}>
+                                                            Delete
+                                                        </button>
                                                     </li>
                                                 )}
                                         </ul>

@@ -14,7 +14,7 @@ interface HeaderProps {
 }
 
 const Header: FunctionComponent<HeaderProps> = () => {
-    /* const [userDetails, setUserDetails] = useState<UserDetails | null>(null) */
+
     const user = useSelector((state: rootState) => state.auth.user)
     const { userDetails, loading } = useSelector((state: rootState) => state.userDetails);
     const dispatch = useDispatch<appDispach>()
@@ -64,7 +64,6 @@ const Header: FunctionComponent<HeaderProps> = () => {
                     <button className="btn rounded-circle bg-body-secondary btn1" title="notifications" onClick={() => {
                         alert("Coming soon")
                     }} ><i className="fa-solid fa-bell"></i></button>
-                    {/* Need to change the image to the users image */}
                     <img src={userDetails?.profilePicture} alt="Logo" style={{ width: "40px", height: "40px" }} className="mx-3" />
                 </div>
             </div>

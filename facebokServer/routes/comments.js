@@ -27,7 +27,7 @@ router.get("/:postId", auth, async (req, res) => {
 // create a comment
 router.post("/:postId", auth, async (req, res) => {
     try {
-        const { error } = commentSchema.validate(req.body)
+        const { error } = await commentSchema.validateAsync(req.body)
         if (error) return res.status(400).send(error.details[0].message)
 
         const post = await Post.findById(req.params.postId);

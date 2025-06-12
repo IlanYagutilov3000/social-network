@@ -15,7 +15,7 @@ const loginSchema = Joi.object({
 router.post("/", async (req, res) => {
     try {
         // validate body
-        const { error } = loginSchema.validate(req.body);
+        const { error } = await loginSchema.validateAsync(req.body);
         if (error) return res.status(400).send(error.details[0].message)
         // check if user not exist
         const user = await User.findOne({ email: req.body.email })

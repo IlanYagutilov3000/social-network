@@ -37,3 +37,16 @@
     font-size: 11px;
     cursor: pointer;
 }
+
+/* responsive */
+@media (max-width: 450px) {
+    .registerStyle input{
+        width: 180px !important;
+    }
+    .inputControl{
+        justify-content: center !important;
+    }
+    .registerContainer{
+        width: 380px;
+    }
+}

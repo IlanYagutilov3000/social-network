@@ -43,7 +43,7 @@ router.get("/:postId", auth, async (req, res) => {
 router.post("/", auth, async (req, res) => {
     try {
         // validate body
-        const { error } = postSchema.validate(req.body)
+        const { error } = await postSchema.validateAsync(req.body)
         if (error) return res.status(400).send(error.details[0].message)
         // create the posts
         const post = new Post({
@@ -64,7 +64,6 @@ router.post("/", auth, async (req, res) => {
 //update post if user is admin or the one who created it
 router.put("/:postId", auth, isAdminOrUSer  ,async (req, res) => {
     try {
-        // need to use the await the req body with validateAsync as well, don't forget
         const {error} = await postSchema.validateAsync(req.body)
         if(error) return res.status(400).send(error.details[0].message)
 

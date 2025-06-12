@@ -1,14 +1,14 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { Post } from "../interfaces/Post";
 import { getPostById } from "../services/postServices";
-import LoadingPlaceHolder from "./LoadingPlaceHolder";
+import LoadingPlaceHolder from "./loadingComp/LoadingPlaceHolder";
 import { createComment, getComments } from "../services/commentServices";
 import { Comment } from "../interfaces/Comment";
 import { FormikValues, useFormik } from "formik";
 import * as yup from "yup";
 import { useSelector } from "react-redux";
 import { rootState } from "../redux/store";
-import Spinner from "./Spinner";
+import Spinner from "./loadingComp/Spinner";
 import './CommentPost.css'
 
 interface CommentPostProps {
