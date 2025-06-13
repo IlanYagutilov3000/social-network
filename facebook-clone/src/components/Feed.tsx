@@ -142,11 +142,11 @@ const Feed: FunctionComponent<FeedProps> = () => {
                                 </div>
                             )}
                             <div className="likeAndCommentCount d-flex justify-content-between">
-                                <span>
+                                <span className="p-1">
                                     <i className={`fa-solid fa-thumbs-up me-1 ${post.likes?.includes(user?._id as string) ? 'fa-solid text-primary' : 'fa-regular'}`}></i>
                                     {post.likes?.length}
                                 </span>
-                                <span>comment</span>
+                                <span className="p-1" >comment</span>
                             </div>
                             <hr className="m-0" />
                             <div className="likeAndComment d-flex justify-content-around">

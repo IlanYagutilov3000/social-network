@@ -16,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import SavedPosts from './components/SavedPosts';
 import PageNotFound from './components/PageNotFound';
+import About from './components/About';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path='/saved-posts' element={<ProtectedRoutes><SavedPosts /></ProtectedRoutes>} />
           <Route path='/groups' element={<ProtectedRoutes><Groups /></ProtectedRoutes>} />
           <Route path='/profile' element={<ProtectedRoutes><UserProfile /></ProtectedRoutes>} />
+          <Route path='/about' element={<ProtectedRoutes><About /></ProtectedRoutes>} />
           <Route path='/profile/:userId' element={<ProtectedRoutes><FriendProfile /></ProtectedRoutes>} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
