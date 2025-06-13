@@ -22,7 +22,7 @@ export function createPost(post: Post) {
 
 // need to figure this one out and make it simpler
 export function updatePost(post: Post & { _id: string }) {
-    const { _id, ...postWithoutId } = post; // Remove _id from the body
+    const { _id, ...postWithoutId } = post; 
     return axios.put(`${api}/${_id}`, postWithoutId, {
         headers: { Authorization: JSON.parse(localStorage.getItem("token") as string) }
     });
